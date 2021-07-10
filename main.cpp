@@ -9,12 +9,10 @@ int map[20][3];
 int whpl;
 int whwp;
 
-void whattodo()
-{	
-	cout<<"What to do(move or shoot)?"<<endl;	
-}
+
 void wheretogo()
 {	
+	cout<<"Where to go next?"<<endl;
 	int move;
 	while(true)
     	{
@@ -30,7 +28,29 @@ void wheretogo()
 }
 void wheretoshoot()
 {
+	cout<<"Write on magic arrow numbers of rooms"<<endl;
+	int shootmap[5];
+	cin>>shootmap[0];
+	for(int i=0;i<4;i++)
+	{
+		cin>>shootmap[i];
+	}
+	cout<<"reg";
+}
 
+void whattodo()
+{	
+	string answer;
+	cout<<"What to do(move(m) or shoot(s))?"<<endl;	
+	cin>>answer;
+	if(answer == "move" || answer == "m" || answer == "M" || answer == "Move") 
+	{
+		wheretogo();
+	}
+	if(answer == "shoot" || answer == "s" || answer == "Shoot" || answer == "S") 
+	{
+		wheretoshoot();
+	}
 }
 
 void game()
@@ -41,7 +61,6 @@ void game()
     	cout<<"You can go to "<<map[whpl][0]<<" "<<map[whpl][1]<<" "<<map[whpl][2]<<endl;
     	if(map[whpl][0] == whwp || map[whpl][1] == whwp || map[whpl][2] == whwp) cout <<"Wampus is nearby!"<<endl;;
     	whattodo();
-    	int move;
     	
     	if(whpl == whwp) 
     	{
